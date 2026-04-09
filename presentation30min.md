@@ -893,5 +893,3 @@ Salvalo. Dallo all'AI. Confronta il risultato con il vibecoding di ieri.
 - Antigravity: per gestire il progetto GitHub
 - Marp: per la presentazione
 - Dario Ferrero <https://aitalk.it/> per l'analisi di CodeSpeak
-
-<https://github.com/matteobaccan/FromVibeToSpec>
