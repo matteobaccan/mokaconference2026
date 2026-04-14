@@ -548,7 +548,7 @@ Non elimina le allucinazioni. Le **contiene e rende visibili**.
 
 | | Waterfall | SDD |
 |:---|:---|:---|
-| **Ciclo** | Spec → Build → Ship (mesi) | Spec → Build → Review → Spec (ore) |
+| **Ciclo** | Spec → Build → Ship (mesi) | Spec → Build → Review → Archive (ore) |
 | **Feedback** | A fine progetto | Dopo ogni task |
 | **Modifica spec** | Costosa | Normale |
 
@@ -577,7 +577,6 @@ Solo codice rilevante (max 500 righe)
 
 - ✅ Conciso: <300 righe se possibile
 - ✅ Eseguibile: L'AI dovrebbe poter dire "sì, posso farlo"
-- ✅ Falsificabile: Si vede subito se il codice generato lo rispetta
 - ✅ Se basta una regex, **non usare un LLM**
 - ❌ Lungo: Non copiare l'intero sistema
 - ❌ Vago: "Migliora il codice" non è una specifica
@@ -600,14 +599,15 @@ Solo codice rilevante (max 500 righe)
 ## OBIETTIVO
 Implementare autenticazione JWT con scadenza 1 ora.
 
+## NON-GOAL
+- Non implementare refresh token (gestito da un task separato)
+- Non usare: OAuth, librerie terze non approvate
+
 ## VINCOLI
-- Token: JWT (HS256)
-- Scadenza: 1h access + 7gg refresh
-- Database: PostgreSQL
-- NON USARE: OAuth, librerie terze non approvate
+- Token: JWT (HS256), scadenza: 1h accesso, 7gg refresh
+- Secret preso da ENV
 
 ## OUTPUT ATTESO
-- [ ] Test passa (coverage definita nella spec)
 - [ ] API /auth/login ritorna 200
 - [ ] Token payload contiene: user_id, scopes
 ```
@@ -657,9 +657,7 @@ Implementare autenticazione JWT con scadenza 1 ora.
 # Il panorama dei Framework SDD
 
 - Non esiste un solo modo. Il mercato sta esplodendo.
-- Ma prima di tutto: **la chiave è la disciplina, non il tool.**
-- Si può fare "SDD artigianale": un file `PROJECT.md`, un `TASKS.md` e un prompt che dice "Leggi PROJECT.md, esegui il prossimo task".
-- I framework aiutano a scalare. Vediamone tre.
+- **La chiave è la disciplina, non il tool.** Si può fare "SDD artigianale" con `PROJECT.md` + `TASKS.md` + `DESIGN.MD` etc., oppure usare un framework.
 
 ---
 
@@ -716,23 +714,29 @@ Implementare autenticazione JWT con scadenza 1 ora.
 
 ---
 
-# OpenSpec: loop minimale, molto pratico
+# OpenSpec: loop minimale, impatto alto, velocità massima
 
 - **Init:** genera struttura e `PROJECT.md` nel repo.
 - **Proposal:** per ogni feature crea change con proposta + task list + spec.
 - **Review:** checkpoint umano sui file prima di toccare il codice.
 - **Apply:** implementazione guidata della singola change.
 - **Archive:** chiudi la change e riparti con la successiva.
-- In pratica funziona bene perché impone un ciclo chiaro: *spec → review → code → done*.
+
+L'obiettivo è abbattere i tempi di sviluppo con un flusso semplice
 
 ---
 
 # Quando il framework diventa frizione
 
-- Se passi più tempo a seguire il rituale che a validare il risultato, sei in over-process.
-- **Segnali tipici:** troppe fasi prima del primo commit utile, nomenclatura rigida, comandi da ricordare invece di decisioni da prendere.
-- Su progetti piccoli/medi: meglio processo leggero e file chiari, senza burocrazia extra.
-- Su progetti grandi/regolati: la struttura più forte può valere il costo.
+- Se passi più tempo sul **rituale** che sulla **validazione**, sei in **over-process**.
+- Segnali tipici: **troppe fasi** prima del primo commit utile, comandi da **ricordare**, **nomenclatura rigida**.
+
+---
+
+# Come muoversi?
+
+- Progetti **piccoli/medi**: -> **processo leggero** + **file chiari** batte framework pesanti.
+- Progetti **grandi/regolati**: -> **struttura forte**, ma va misurato il costo operativo.
 
 ---
 
@@ -749,10 +753,11 @@ Implementare autenticazione JWT con scadenza 1 ora.
 
 | Framework | Complessità | Target | Punti di Forza |
 | :--- | :--- | :--- | :--- |
-| **BMAD** | Alta | Full Enterprise | 21 agenti specializzati |
-| **GSD** | Bassa | Developer Veloce | Anti-burocrazia, sub-agenti puliti |
+| **OpenSpec** | Bassa | Developer Veloce | explore, propose, apply e archive |
+| **GetShitDone** | Bassa | Developer Veloce | Anti-burocrazia, sub-agenti puliti |
 | **GitHub Spec Kit** | Media | Standard Industry | Open-source, integrazione Copilot |
 | **Ralph Loop** | Media | CI/CD Autonomi | "Git as Memory", fresh start |
+| **BMAD** | Alta | Full Enterprise | 21 agenti specializzati |
 
 ---
 
@@ -775,7 +780,7 @@ Implementare autenticazione JWT con scadenza 1 ora.
 
 ---
 
-# CodeSpeak: mantenere le specifiche, non il codice
+# CodeSpeak: un esempio di SDD radicale
 
 - Progetto di **Andrey Breslav** (creatore di Kotlin): non un plugin, ma un tentativo di ripensare il rapporto tra umani, codice e agenti AI.
 - Idea chiave: il team mantiene file di specifica leggibili; il codice di implementazione viene rigenerato dal sistema.
@@ -784,7 +789,7 @@ Implementare autenticazione JWT con scadenza 1 ora.
 
 ---
 
-# Perché CodeSpeak conta nel dibattito SDD
+# Perché è importante
 
 - È un segnale forte: non solo framework e prompt migliori, ma **linguaggi AI-native** pensati per specificare l'intento.
 - Nei case study pubblicati, alcune porzioni di codice si comprimono di circa **6x-10x** mantenendo il comportamento verificato dai test.
@@ -796,15 +801,14 @@ Implementare autenticazione JWT con scadenza 1 ora.
 # Dove andiamo
 ## (e dove non siamo ancora)
 
-- **Attenzione:** Tutto ciò che vedete oggi è lo stato dell'arte *di questo momento*. Il movimento è rapidissimo.
+- **Attenzione:** Questo è lo stato dell'arte *oggi*.
 - Ogni 3-6 mesi emergono nuovi framework, nuovi pattern, nuove capacità degli LLM.
-- I progressi sono **costanti e continui**: non siamo ancora all'apice. La curva non si è appiattita.
-- **Direzione chiara dei framework:**
+- I progressi sono **costanti e continui**.
+- **Direzione chiara:**
   - Da "prompt singolo" → **specifiche strutturate come contratto**
-  - Da "un agente tuttofare" → **squadre di agenti specializzati coordinati**
+  - Da "un agente tuttofare" → **squadre di agenti specializzati**
   - Da "chat come memoria" → **Git e file come memoria persistente**
-  - Da "IDE plugin" → **integrazione nativa nell'intero ciclo CI/CD**
-- I tool che vi ho mostrato (BMAD, GSD, Spec Kit, Ralph Loop) potrebbero essere superati tra 6 mesi. Ma il **principio fondamentale** — governare l'AI con specifiche — resterà.
+- Quello che vi mostro oggi potrebbe essere ben preso superato, ma il **principio** (governare l'AI con specifiche) resterà.
 
 ---
 
@@ -831,12 +835,11 @@ Implementare autenticazione JWT con scadenza 1 ora.
 
 ```
 progetto/
-├── .spec/
-│   ├── PROJECT.md      ← Contesto globale
-│   ├── CONVENTIONS.md  ← Regole (snake_case, no lib esterne...)
-│   └── specs/
-│       └── SPEC-001.md ← Prima feature
-└── src/
+├─ .spec/
+   ├── PROJECT.md      ← Contesto globale
+   ├── CONVENTIONS.md  ← Regole (snake_case, no lib esterne...)
+   └── specs/
+     └── SPEC-001.md ← Prima feature
 ```
 
 ---
@@ -844,7 +847,7 @@ progetto/
 # Step 2 - Definire l'Intento (Drafting)
 
 - Non scrivere prompt tecnici subito.
-- Dialogo con l'AI per esplorare i requisiti.
+- Dialoga in modo funzionale con l'AI per esplorare i requisiti.
 - **Esempio:** "Aiutami a progettare una feature per analizzare video YouTube". L'AI fa domande chiarificatrici (Edge cases? Error handling?).
 
 ---
@@ -856,8 +859,8 @@ progetto/
 
 ```
 Tu:  "Genera export CSV degli ordini"
-AI:  "Quale delimitatore? Encoding? Include PII? Max righe?"
-Tu:  "Virgola, UTF-8, no PII, max 50k righe per file"
+AI:  "Quale delimitatore? Encoding? Max righe?"
+Tu:  "Virgola, UTF-8, max 50k righe per file"
 → Specifica completa in 2 minuti, non in 2 ore
 ```
 
@@ -1018,7 +1021,6 @@ src/Models/* | migration files
 ## VALIDAZIONE
 - [ ] Test suite passa (vendor/bin/phpunit)
 - [ ] API v1 funziona ancora
-- [ ] Performance < 200ms
 ```
 **Risultato:** meno iterazioni, fix più tracciato e riproducibile.
 
@@ -1067,7 +1069,7 @@ src/Models/* | migration files
 
 ---
 
-# ROI dello Spec-Driven Development
+# ROI : VibeCoding VS SDD
 
 | **Metrica** | **Vibecoding** | **SDD** |
 | :--- | :--- | :--- |
@@ -1080,12 +1082,10 @@ src/Models/* | migration files
 
 ---
 
-# ROI dello Spec-Driven Development
+# Run slow to run fast
 
-- **Investimento iniziale:** Più alto (scrivere spec richiede tempo).
-- **Risparmio a lungo termine:** Meno bug, meno riscritture, onboarding più rapido, documentazione più viva.
-- **Mantra:** "Run slow to run fast". Il tempo speso in specifica si recupera nel medio periodo.
-- **Per sistemi legacy:** Riduzione significativa dei tempi di modifica.
+Il tempo speso in specifica si recupera nel medio periodo.
+Si tratta di un investimento, non di un costo.
 
 ---
 
