@@ -3,7 +3,7 @@ marp: true
 theme: default
 paginate: true
 header: '**Il Vibecoding è morto**'
-footer: 'MokaByte Conference 2026 | Matteo Baccan'
+footer: 'MokaByte Conference 2026 | Matteo Baccan | versione del %date% %time%'
 backgroundImage: url('img/background.svg');
 style: |
   /* ===== BASE ===== */

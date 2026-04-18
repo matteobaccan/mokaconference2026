@@ -2,6 +2,8 @@
 
 Repository per la presentazione "Il Vibecoding è morto: viva lo Spec-Driven Development" di Matteo Baccan, presentata alla **MokaByte Conference 2026**.
 
+Nella versione da 30 minuti il titolo è stato compattato in **"Basta Vibecoding: viva lo Spec-Driven Development"**, mantenendo gli stessi contenuti chiave.
+
 ## 📅 MokaByte Conference 2026
 
 **15 Aprile 2026 - Officine Credem (RE)**  
@@ -110,3 +112,25 @@ Questa presentazione è stata realizzata utilizzando:
 
 * Sito web: [baccan.it](https://www.baccan.it)
 * Quote: *"Smetti di chattare, inizia a governare."*
+
+## 📸 Foto Evento
+
+### Sala e venue
+
+![Conferenza: relatore e pubblico](foto/conferenza-sala-relatore-pubblico.jpeg)
+
+![Cortile Officine Credem](foto/cortile-officine-credem.jpeg)
+
+![Totem Officine Credem](foto/totem-officine-credem.jpeg)
+
+![Logo Officine Credem su parete](foto/logo-officine-credem-parete.jpeg)
+
+### Segnaletica e contenuti
+
+![Percorso blu 17](foto/percorso-blu-17.jpeg)
+
+![Schermo MokaByte Conference](foto/schermo-mokabyte-conference.jpeg)
+
+### Badge speaker
+
+![Badge Matteo Baccan](foto/badge-matteo-baccan.jpeg)
