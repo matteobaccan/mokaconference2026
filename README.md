@@ -1,8 +1,8 @@
 # Il Vibecoding è morto: viva lo Spec-Driven Development
 
-Repository per la presentazione "Il Vibecoding è morto: viva lo Spec-Driven Development" di Matteo Baccan, presentata alla **MokaByte Conference 2026**.
+In questo repository raccolgo la mia presentazione "Il Vibecoding è morto: viva lo Spec-Driven Development", che ho portato alla **MokaByte Conference 2026**.
 
-Nella versione da 30 minuti il titolo è stato compattato in **"Basta Vibecoding: viva lo Spec-Driven Development"**, mantenendo gli stessi contenuti chiave.
+Nella versione da 30 minuti ho compattato il titolo in **"Basta Vibecoding: viva lo Spec-Driven Development"**, mantenendo gli stessi contenuti chiave.
 
 ## 📅 MokaByte Conference 2026
 
@@ -53,49 +53,49 @@ Partecipazione gratuita con **registrazione obbligatoria** fino a esaurimento po
 | `presentation.md` | ~50 min | ~90 | Versione completa con tutti gli approfondimenti |
 | `presentation30min.md` | ~30 min | ~50 | Versione compatta ottimizzata per slot da 30 minuti |
 
-Entrambe le versioni includono 3 slide appendice (non presentate) con link e risorse per chi scarica le slide dopo l'evento.
+In entrambe le versioni includo 3 slide appendice, non presentate dal vivo, con link e risorse per chi scarica le slide dopo l'evento.
 
 ## 📄 Contenuti della Presentazione
 
-La presentazione esplora i limiti dell'approccio "Vibecoding" (programmare a sentimento con l'AI) e propone lo **Spec-Driven Development (SDD)** come metodologia professionale per lo sviluppo software assistito da AI.
+In questa presentazione esploro i limiti dell'approccio "Vibecoding" (programmare a sentimento con l'AI) e propongo lo **Spec-Driven Development (SDD)** come metodologia professionale per lo sviluppo software assistito da AI.
 
 ### Punti Chiave
 
 1. **Il Problema del Vibecoding**:
-    * L'illusione di produttività data dagli script generati al primo colpo.
-    * Problemi di scalabilità su sistemi Enterprise e legacy.
-    * **Context Rot**: L'AI perde il filo e genera codice incoerente o allucinato man mano che la chat si allunga.
-    * Allucinazioni verosimili: il rischio peggiore sono le risposte *credibili* ma tecnicamente sbagliate.
+    * Parto dall'illusione di produttività data dagli script generati al primo colpo.
+    * Mostro i problemi di scalabilità su sistemi Enterprise e legacy.
+    * **Context Rot**: evidenzio come l'AI perda il filo e generi codice incoerente o allucinato man mano che la chat si allunga.
+    * Metto a fuoco le allucinazioni verosimili: il rischio peggiore sono le risposte *credibili* ma tecnicamente sbagliate.
 
 2. **Spec-Driven Development (SDD)**:
-    * Le specifiche (in Markdown) diventano artefatti eseguibili.
-    * L'AI agisce come un implementatore che segue un contratto preciso.
-    * Vantaggi: Tracciabilità, Riproducibilità, Zero Context Rot.
-    * Il ruolo dello sviluppatore cambia: da scrittore di sintassi ad **Architetto di Specifiche**.
+    * Propongo un modello in cui le specifiche (in Markdown) diventano artefatti eseguibili.
+    * Mostro l'AI come implementatore che segue un contratto preciso.
+    * Evidenzio i vantaggi: Tracciabilità, Riproducibilità, Zero Context Rot.
+    * Sostengo che il ruolo dello sviluppatore cambi: da scrittore di sintassi ad **Architetto di Specifiche**.
 
 3. **Framework e Strumenti**:
-    * **BMAD**: Per contesti Enterprise complessi (21 agenti specializzati).
-    * **GSD (Get Shit Done)**: Per sviluppatori singoli che vogliono velocità.
-    * **GitHub Spec Kit**: Lo standard open source per l'ecosistema GitHub.
-    * **Ralph Loop / Agent.OS**: Per flussi CI/CD autonomi ("Git as Memory").
-    * **CodeSpeak**: Esempio radicale di linguaggio e workflow "spec-first" (AI-native).
+    * Presento **BMAD** per contesti Enterprise complessi, con 21 agenti specializzati.
+    * Inserisco **GSD (Get Shit Done)** per sviluppatori singoli che vogliono velocità.
+    * Cito **GitHub Spec Kit** come standard open source per l'ecosistema GitHub.
+    * Richiamo **Ralph Loop / Agent.OS** per flussi CI/CD autonomi basati su "Git as Memory".
+    * Porto **CodeSpeak** come esempio radicale di linguaggio e workflow "spec-first" (AI-native).
 
 4. **Workflow Pratico in 5 Step**:
-    * Inizializzazione della cartella `.spec/` con contesto e convenzioni.
-    * Drafting iterativo dei requisiti con l'AI.
-    * Generazione della specifica tecnica con checkpoint umano.
-    * Breaking down in task atomici e testabili.
-    * Loop di implementazione con l'Agente AI.
+    * Descrivo l'inizializzazione della cartella `.spec/` con contesto e convenzioni.
+    * Spiego il drafting iterativo dei requisiti con l'AI.
+    * Mostro la generazione della specifica tecnica con checkpoint umano.
+    * Porto il breaking down in task atomici e testabili.
+    * Chiudo con il loop di implementazione con l'Agente AI.
 
 5. **Applicazioni Concrete**:
-    * SDD su legacy code (50.000 righe): analisi, protezione con test, refactoring incrementale.
-    * Conformità e documentazione (GDPR, ISO 9001, AI Act).
-    * ROI: riduzione tempi di debugging, efficienza token, onboarding più rapido.
-    * **Benchmark SWE-CI**: Valutazione dell'AI sulla manutenibilità a lungo termine (zero-regression rate), che rende l'SDD una necessità assoluta.
+    * Porto il caso di SDD su legacy code da 50.000 righe: analisi, protezione con test, refactoring incrementale.
+    * Collego il metodo a conformità e documentazione, tra GDPR, ISO 9001 e AI Act.
+    * Ragiono sul ROI: riduzione dei tempi di debugging, efficienza token, onboarding più rapido.
+    * Richiamo il **Benchmark SWE-CI** come valutazione della manutenibilità a lungo termine, che rende l'SDD una necessità concreta.
 
 ## 🛠️ Tool Utilizzati
 
-Questa presentazione è stata realizzata utilizzando:
+Per realizzare questa presentazione ho usato:
 
 * **BGE** (Brigata dei Geek Estinti) — Puntata 98 e 99 per gli spunti
 * **Gemini** — Per la riformattazione
@@ -114,6 +114,8 @@ Questa presentazione è stata realizzata utilizzando:
 * Quote: *"Smetti di chattare, inizia a governare."*
 
 ## 📸 Foto Evento
+
+Qui raccolgo alcune foto dell'evento e della venue.
 
 ### Sala e venue
 
