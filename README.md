@@ -4,6 +4,8 @@ In questo repository raccolgo la mia presentazione "Il Vibecoding è morto: viva
 
 Nella versione da 30 minuti ho compattato il titolo in **"Basta Vibecoding: viva lo Spec-Driven Development"**, mantenendo gli stessi contenuti chiave.
 
+Un ringraziamento va a **Giovanni Puliti** che conosco da quando è nato MokaByte, **Stefano Leli** che ha spiegato l'evoluzione passata e futura del mondo AI nel mondo della programmazione e a **Fabrizio Giudici** che ha fatto da mestro di cerimonia nella tavola rotorna dell'uso delle AI nel mondo della programmazione, col quel misto di fiducia e diffidenza che serve sempre quando arrivano nuove tecnologie.
+
 ## 📅 MokaByte Conference 2026
 
 **15 Aprile 2026 - Officine Credem (RE)**  
